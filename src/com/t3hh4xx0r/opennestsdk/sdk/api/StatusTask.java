@@ -56,6 +56,7 @@ public class StatusTask extends AsyncTask<Void, Void, Void> {
 			StringBuffer buffer = Nest.getStringBufferFromResponse(urlc);
 			StatusResponse statusResponse = Nest.gson.fromJson(
 					buffer.toString(), StatusResponse.class);
+			Log.d("STATUS REPSONSE HERE", statusResponse.toString());
 			nest.setStatusResponse(statusResponse);
 			if (listener != null) {
 				listener.onStatusFetched(statusResponse);

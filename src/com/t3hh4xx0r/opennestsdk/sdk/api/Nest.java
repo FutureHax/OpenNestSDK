@@ -12,7 +12,6 @@ import java.util.Properties;
 import javax.net.ssl.HttpsURLConnection;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -92,6 +91,16 @@ public class Nest {
 
 	public void setAwayStatus(boolean away) {
 		AwayTask task = new AwayTask(away, this);
+		task.execute();
+	}
+	
+	public void setTemp(int targetTempHigh, int targetTempLow) {
+		SetTempTask task = new SetTempTask(targetTempHigh, targetTempLow, this);
+		task.execute();
+	}
+	
+	public void setTemp() {
+		SetTempTask task = new SetTempTask(0, 0, this);
 		task.execute();
 	}
 
